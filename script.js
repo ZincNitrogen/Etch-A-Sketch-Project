@@ -1,6 +1,7 @@
 let main = document.querySelector("main");
 let div = document.querySelector("div")
 let sectionContainer = document.querySelector(".section-flex-container");
+let sectionGroup = document.querySelectorAll(".section-flex-container");
 
 
 for (let i = 0; i <= 16; i++){
@@ -16,6 +17,8 @@ for (let i = 0; i<= 16; i++ ) {
 };
 
 
+
+//TODO: some sort of event delegation for the "hover" part of the project
 
 
 
