@@ -1,0 +1,25 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-flex-container {
+    display: flex;
+    flex-flow: column wrap;
+    border: 3px solid black;
+
+
+  
+
+}
+
+.section-flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    /*border: 2px solid black;*/
+    gap: 1vh;
+}
+
