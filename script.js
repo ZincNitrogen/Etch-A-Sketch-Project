@@ -18,9 +18,14 @@ for (let i = 0; i<= 16; i++ ) {
 
 
 
-//TODO: some sort of event delegation for the "hover" part of the project
 
 
+main.addEventListener("mouseover", (e) => {
+
+    if (e.target.className == 'divs'  ){
+        e.target.style.backgroundColor = "blue";
+    }
+})
 
 
 
