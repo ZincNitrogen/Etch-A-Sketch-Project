@@ -1,6 +1,7 @@
 
 let left = document.querySelector(".left");
 let right = document.querySelector(".right");
+let sketchArea = document.querySelector(".sketchArea");
 
 
 
@@ -31,7 +32,9 @@ function createGrid(userInput = 2) {
         for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
 
             let div = document.createElement("div");
-            div.style.border = "1px solid blue";
+            div.setAttribute("class", "divs");
+
+            //div.style.border = "1px solid blue";
 
             div.style.width = `${lengthAndWidthOfSubdivisions}px`;
             div.style.height = `${lengthAndWidthOfSubdivisions}px`;
@@ -44,7 +47,9 @@ function createGrid(userInput = 2) {
         for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
 
             let div = document.createElement("div");
-            div.style.border = "1px solid blue";
+            div.setAttribute("class", "divs");
+
+            //div.style.border = "1px solid blue";
 
             div.style.width = `${lengthAndWidthOfSubdivisions}px`;
             div.style.height = `${lengthAndWidthOfSubdivisions}px`;
@@ -57,13 +62,44 @@ function createGrid(userInput = 2) {
     }
 
 
-    paintSubdivision()
+    paintSubdivision();
 
 
-}
+};
 
 
-createGrid(16);
+createGrid(100);
+
+
+//Events
+
+sketchArea.addEventListener("mouseover", (e) => {
+    console.log("working");
+    console.log(e);
+
+    if (e.target.className == "divs") {
+        e.target.style.backgroundColor = "red";
+        e.target.stopPropogation;
+
+
+    }
+    
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
