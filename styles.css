@@ -1,25 +1,48 @@
-* {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: none;
-    margin: 0;
-    padding: 0;
+*{
     box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
 }
 
-.main-flex-container {
-    display: flex;
-    flex-flow: column wrap;
-    border: 3px solid black;
 
 
-  
-
-}
-
-.section-flex-container {
+.bigbox {
     display: flex;
     flex-flow: row wrap;
-    /*border: 2px solid black;*/
-    gap: 1vh;
+    justify-content: center;
+    align-items: center;
 }
+
+
+.sketchArea {
+    display: flex;
+    flex-flow: row wrap;
+    height: 500px;
+    width: 500px ;
+    border: 1px solid blue;
+
+
+}
+
+.left {
+    display: flex;
+    flex-flow: column wrap;
+    height: 250px;
+    width: 250px ;
+
+   
+
+
+}
+
+.right {
+    display: flex;
+    flex-flow: column wrap;
+    height: 250px;
+    width: 250px ;
+
+
+
+}
+
 
