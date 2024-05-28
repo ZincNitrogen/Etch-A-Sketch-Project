@@ -16,8 +16,11 @@ function createGrid(userInput = 2) {
 
 
     let totalSubdivisions = userInput**2 ;
-    let areaPerSubdivision = (fixedTotalArea/totalSubdivisions);
-    let lengthAndWidthOfSubdivisions = +(Math.sqrt(areaPerSubdivision)).toFixed(1);
+    let areaPerSubdivision = (fixedTotalArea/totalSubdivisions);  
+
+
+    let lengthAndWidthOfSubdivisions = (Math.sqrt(areaPerSubdivision));
+
 
     console.log(typeof(totalSubdivisions), totalSubdivisions);
     console.log(typeof(areaPerSubdivision), areaPerSubdivision);
@@ -87,7 +90,7 @@ function createGrid(userInput = 2) {
 };
 
 
-createGrid(7);
+createGrid(55);
 
 
 //Events
