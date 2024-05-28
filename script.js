@@ -1,9 +1,36 @@
 
-let left = document.querySelector(".left");
-let right = document.querySelector(".right");
+let newGridBtn = document.querySelector(".new-grid-btn");
+let toggleGridLineBtn = document.querySelector(".toggle-grid-btn");
+let playSnakeBtn = document.querySelector(".snake-btn");
+
 let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
 
+
+function gridPrompt() {
+
+    let userInput;
+
+    do {
+        userInput = Number(prompt("Enter a whole number between 1 and 100 to create a square grid.\n(Ex: '8' creates an 8x8 grid)\nNote: any number out of bounds will default to a 16x16 grid. ", 2));
+        //this either returns a number or NaN
+        console.log(typeof(userInput), userInput) ;
+
+
+        if (isNaN(userInput) == true){
+            confirm("Whole numbers only please!");
+
+        }else if (userInput > 100 || userInput < 1) {
+            userInput = 16;
+        }
+
+    } while (isNaN(userInput) == true); //i need the loop to run unless A) a number is returned, b) null is returned
+
+    
+    return userInput;
+
+
+}
 
 
 
@@ -22,54 +49,21 @@ function createGrid(userInput = 2) {
     let lengthAndWidthOfSubdivisions = (Math.sqrt(areaPerSubdivision));
 
 
-    console.log(typeof(totalSubdivisions), totalSubdivisions);
+    /*console.log(typeof(totalSubdivisions), totalSubdivisions);
     console.log(typeof(areaPerSubdivision), areaPerSubdivision);
-    console.log(typeof(lengthAndWidthOfSubdivisions) , lengthAndWidthOfSubdivisions);
+    console.log(typeof(lengthAndWidthOfSubdivisions) , lengthAndWidthOfSubdivisions);*/
 
     //create subdivisions
 
 
 
     function paintSubdivision() {
-    
-        let counter = 1;
-
-       /* for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
-
-            let div = document.createElement("div");
-            div.setAttribute("class", "divs");
-
-            div.style.border = "1px solid blue";
-
-            div.style.width = `${(lengthAndWidthOfSubdivisions)}px`;
-            div.style.height = `${(lengthAndWidthOfSubdivisions)}px`;
-
-
-            left.append(div);
-        }
-
-
-        for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
-
-            let div = document.createElement("div");
-            div.setAttribute("class", "divs");
-
-            div.style.border = "1px solid blue";
-
-            div.style.width = `${lengthAndWidthOfSubdivisions}px`;
-            div.style.height = `${lengthAndWidthOfSubdivisions}px`;
-
-
-            right.append(div);
-        }*/
-
         
 
         for (let subdivision = 0; subdivision < (totalSubdivisions); subdivision++) {
 
             let div = document.createElement("div");
             div.setAttribute("class", "divs");
-            /*div.textContent = counter++;*/
             div.style.border = "1px solid blue";
 
             div.style.width = `${lengthAndWidthOfSubdivisions}px`;
@@ -90,8 +84,6 @@ function createGrid(userInput = 2) {
 };
 
 
-createGrid(55);
-
 
 //Events
 
@@ -107,15 +99,18 @@ sketchArea.addEventListener("mouseover", (e) => {
     }
 
 //TODO HERE: MAKE IT SO IT STOPS PAINTING WHEN SHIFT + MOUSEOVER OCCURS.
+//make it do that a user can play the snake game without ruining their drawing unless the snake eats something
     
-
-
-
 
 });
 
 
+newGridBtn.addEventListener("click", () => {
+    console.log("here");
+    
+});
 
+//*****WE ARE HERE. NEED TO MAKE BUTTONS OPERATIONAL */
 
 
 
