@@ -1,6 +1,7 @@
 
 let left = document.querySelector(".left");
 let right = document.querySelector(".right");
+let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
 
 
@@ -15,29 +16,30 @@ function createGrid(userInput = 2) {
 
 
     let totalSubdivisions = userInput**2 ;
-    let areaPerSubdivision = fixedTotalArea/totalSubdivisions;
-    let lengthAndWidthOfSubdivisions = Math.sqrt(areaPerSubdivision);
+    let areaPerSubdivision = (fixedTotalArea/totalSubdivisions);
+    let lengthAndWidthOfSubdivisions = +(Math.sqrt(areaPerSubdivision)).toFixed(1);
 
-    console.log(totalSubdivisions);
-    console.log(areaPerSubdivision);
-    console.log(lengthAndWidthOfSubdivisions);
+    console.log(typeof(totalSubdivisions), totalSubdivisions);
+    console.log(typeof(areaPerSubdivision), areaPerSubdivision);
+    console.log(typeof(lengthAndWidthOfSubdivisions) , lengthAndWidthOfSubdivisions);
 
     //create subdivisions
 
 
 
     function paintSubdivision() {
-        let counter = 0
+    
+        let counter = 1;
 
-        for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
+       /* for (let subdivision = 0; subdivision < (totalSubdivisions/2); subdivision++) {
 
             let div = document.createElement("div");
             div.setAttribute("class", "divs");
 
-            //div.style.border = "1px solid blue";
+            div.style.border = "1px solid blue";
 
-            div.style.width = `${lengthAndWidthOfSubdivisions}px`;
-            div.style.height = `${lengthAndWidthOfSubdivisions}px`;
+            div.style.width = `${(lengthAndWidthOfSubdivisions)}px`;
+            div.style.height = `${(lengthAndWidthOfSubdivisions)}px`;
 
 
             left.append(div);
@@ -49,14 +51,31 @@ function createGrid(userInput = 2) {
             let div = document.createElement("div");
             div.setAttribute("class", "divs");
 
-            //div.style.border = "1px solid blue";
+            div.style.border = "1px solid blue";
 
             div.style.width = `${lengthAndWidthOfSubdivisions}px`;
             div.style.height = `${lengthAndWidthOfSubdivisions}px`;
 
 
             right.append(div);
+        }*/
+
+        
+
+        for (let subdivision = 0; subdivision < (totalSubdivisions); subdivision++) {
+
+            let div = document.createElement("div");
+            div.setAttribute("class", "divs");
+            /*div.textContent = counter++;*/
+            div.style.border = "1px solid blue";
+
+            div.style.width = `${lengthAndWidthOfSubdivisions}px`;
+            div.style.height = `${lengthAndWidthOfSubdivisions}px`;
+
+
+            whole.append(div);
         }
+    
     
     
     }
@@ -68,7 +87,7 @@ function createGrid(userInput = 2) {
 };
 
 
-createGrid(100);
+createGrid(7);
 
 
 //Events
@@ -83,6 +102,8 @@ sketchArea.addEventListener("mouseover", (e) => {
 
 
     }
+
+//TODO HERE: MAKE IT SO IT STOPS PAINTING WHEN SHIFT + MOUSEOVER OCCURS.
     
 
 
