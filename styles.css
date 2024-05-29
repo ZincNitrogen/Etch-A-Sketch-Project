@@ -12,6 +12,7 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    margin-top: 5vh;
 }
 
 
@@ -24,28 +25,6 @@
 
 
 }
-
-.left {
-    display: flex;
-    flex-flow: column wrap;
-    height: 250px;
-    width: 250px ;
-
-   
-
-
-}
-
-.right {
-    display: flex;
-    flex-flow: column wrap;
-    height: 250px;
-    width: 250px ;
-
-
-
-}
-
 
 .whole {
     display: flex;
