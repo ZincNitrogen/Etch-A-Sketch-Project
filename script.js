@@ -3,10 +3,14 @@ let newGridBtn = document.querySelector(".new-grid-btn");
 let toggleGridLineBtn = document.querySelector(".toggle-grid-btn");
 let playSnakeBtn = document.querySelector(".snake-btn");
 playSnakeBtn.toggleAttribute("hidden", "true");
-
+let lsdModeBtn = document.querySelector(".lsd-mode-btn");
+let eraserBtn = document.querySelector(".eraser-btn");
+let lsdtext = document.querySelector(".lsd-mode-btn").textContent;
+let clearBtn = document.querySelector(".clear-btn");
 let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
 let allDivs = document.querySelectorAll(".divs");
+
 
 
 
@@ -87,6 +91,14 @@ function clearGrid() {
 
 };
 
+function clearColor() {
+    allDivs = document.querySelectorAll(".divs");
+
+    for (let i of allDivs) {
+        i.style.backgroundColor = "transparent";
+    } 
+}
+
 function toggleGridLine() {
     allDivs = document.querySelectorAll(".divs");
 
@@ -108,19 +120,40 @@ function toggleGridLine() {
 };
 
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  };
 
 
 //Events
+
+let tileColor = "red";
+let modeFlag = 0;
 
 sketchArea.addEventListener("mouseover", (e) => {
     console.log("working");
     console.log(e);
 
-    if (e.target.className == "divs") {
-        e.target.style.backgroundColor = "red";
+    if (e.target.className == "divs" && modeFlag == 0) {
+        e.target.style.backgroundColor = tileColor;
         e.target.stopPropogation;
 
-    }
+    } else if (e.target.className == "divs" && modeFlag == 1){
+        e.target.style.backgroundColor = `rgb(${getRndInteger(0,255)},${getRndInteger(0,255)},${getRndInteger(0,255)})`;
+        e.target.stopPropogation;
+
+
+    } else if (e.target.className == "divs" && modeFlag == 2) {
+        e.target.style.backgroundColor = "transparent";
+        e.target.stopPropogation;
+    } 
+
+
+
+    console.log(modeFlag);
+
+
+
 
 
 
@@ -130,7 +163,8 @@ sketchArea.addEventListener("mouseover", (e) => {
 
 });
 
-//*****WE ARE HERE. NEED TO MAKE BUTTONS OPERATIONAL */
+
+
 
 newGridBtn.addEventListener("click", () => {
     clearGrid();
@@ -147,6 +181,63 @@ toggleGridLineBtn.addEventListener("click", () => {
 
 
 
+lsdModeBtn.addEventListener("click", (e) => {
+
+    if (modeFlag == 0) {
+        modeFlag = 1;
+        e.target.textContent = "Sober Mode"
+
+    } else if (modeFlag == 1) {
+        modeFlag = 0;
+        e.target.textContent = lsdtext;
+        e.target.style.backgroundColor = "rainbow";
+
+    }
+
+    console.log(modeFlag);
+
+
+});
+
+
+let oldModeFlag;
+
+eraserBtn.addEventListener("click", (e) => {
+
+
+
+    if (modeFlag == 0){
+        modeFlag += 2;
+        oldModeFlag = "sober"
+        e.target.style.color = "red";
+    } else if (modeFlag == 1) {
+        modeFlag += 1
+        oldModeFlag = "lsd"
+        e.target.style.color = "red";
+
+
+    } else if (modeFlag == 2 && oldModeFlag == "sober") {
+        modeFlag -= 2;
+        e.target.style.color = "black";
+
+    } else if (modeFlag == 2 && oldModeFlag == "lsd") {
+        modeFlag -= 1;
+        e.target.style.color = "black";
+
+    }
+
+    console.log(oldModeFlag, modeFlag);
+
+
+   
+});
+
+
+clearBtn.addEventListener("click", () => {
+
+    clearColor();
+
+})
 
 
 createGrid(gridPrompt());
