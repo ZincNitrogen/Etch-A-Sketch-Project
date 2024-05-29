@@ -2,9 +2,12 @@
 let newGridBtn = document.querySelector(".new-grid-btn");
 let toggleGridLineBtn = document.querySelector(".toggle-grid-btn");
 let playSnakeBtn = document.querySelector(".snake-btn");
+playSnakeBtn.toggleAttribute("hidden", "true");
 
 let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
+let allDivs = document.querySelectorAll(".divs");
+
 
 
 
@@ -15,7 +18,7 @@ function gridPrompt() {
     let userInput;
 
     do {
-        userInput = Number(prompt("Enter a whole number between 1 and 100 to create a square grid.\n(Ex: '8' creates an 8x8 grid)\nNote: any number out of bounds will default to a 16x16 grid. ", 2));
+        userInput = Number(prompt("Enter a whole number between 2 and 100 to create a square grid.\n(Ex: '8' creates an 8x8 grid)\nNote: any number out of bounds will default to a 16x16 grid. ", 16));
         //this either returns a number or NaN
         console.log(typeof(userInput), userInput) ;
 
@@ -23,7 +26,7 @@ function gridPrompt() {
         if (isNaN(userInput) == true){
             confirm("Whole numbers only please!");
 
-        }else if (userInput > 100 || userInput < 1) {
+        }else if (userInput > 100 || userInput < 2) {
             userInput = 16;
         }
 
@@ -66,13 +69,15 @@ function createGrid(userInput = 16) {
         whole.append(div);
     
     }
+
+    
    
 
 };
 
 function clearGrid() {
 
-    let allDivs = document.querySelectorAll(".divs");
+    allDivs = document.querySelectorAll(".divs");
 
 
     for (let i of allDivs) {
@@ -80,6 +85,26 @@ function clearGrid() {
     }    
 
 
+};
+
+function toggleGridLine() {
+    allDivs = document.querySelectorAll(".divs");
+
+    
+    for (let i of allDivs) {
+
+        if (i.style.border != "medium"){
+            console.log(i.style.border)
+            i.style.border = "none";
+            console.log(i.style.border)
+
+        }else if (i.style.border == "medium") {
+            i.style.border = "1px solid blue";
+        }
+
+
+
+    } 
 };
 
 
@@ -97,12 +122,15 @@ sketchArea.addEventListener("mouseover", (e) => {
 
     }
 
+
+
 //TODO HERE: MAKE IT SO IT STOPS PAINTING WHEN SHIFT + MOUSEOVER OCCURS.
 //make it do that a user can play the snake game without ruining their drawing unless the snake eats something
     
 
 });
 
+//*****WE ARE HERE. NEED TO MAKE BUTTONS OPERATIONAL */
 
 newGridBtn.addEventListener("click", () => {
     clearGrid();
@@ -112,7 +140,11 @@ newGridBtn.addEventListener("click", () => {
 
 });
 
-//*****WE ARE HERE. NEED TO MAKE BUTTONS OPERATIONAL */
+toggleGridLineBtn.addEventListener("click", () => {
+
+    toggleGridLine();
+} );
+
 
 
 
