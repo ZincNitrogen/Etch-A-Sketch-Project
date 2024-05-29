@@ -7,7 +7,10 @@ let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
 
 
+
 function gridPrompt() {
+
+    //this function prompts the user for a number which will be used to create the unform fixed grid.
 
     let userInput;
 
@@ -36,52 +39,49 @@ function gridPrompt() {
 
 
 
-
-function createGrid(userInput = 2) {
-
+function createGrid(userInput = 16) {
+    
     let fixedTotalArea = 500**2;
-
-
     let totalSubdivisions = userInput**2 ;
     let areaPerSubdivision = (fixedTotalArea/totalSubdivisions);  
-
-
     let lengthAndWidthOfSubdivisions = (Math.sqrt(areaPerSubdivision));
+
 
 
     /*console.log(typeof(totalSubdivisions), totalSubdivisions);
     console.log(typeof(areaPerSubdivision), areaPerSubdivision);
     console.log(typeof(lengthAndWidthOfSubdivisions) , lengthAndWidthOfSubdivisions);*/
-
-    //create subdivisions
-
-
-
-    function paintSubdivision() {
         
 
-        for (let subdivision = 0; subdivision < (totalSubdivisions); subdivision++) {
+    for (let subdivision = 0; subdivision < (totalSubdivisions); subdivision++) {
 
-            let div = document.createElement("div");
-            div.setAttribute("class", "divs");
-            div.style.border = "1px solid blue";
+        let div = document.createElement("div");
+        div.setAttribute("class", "divs");
+        div.style.border = "1px solid blue";
 
-            div.style.width = `${lengthAndWidthOfSubdivisions}px`;
-            div.style.height = `${lengthAndWidthOfSubdivisions}px`;
+        div.style.width = `${lengthAndWidthOfSubdivisions}px`;
+        div.style.height = `${lengthAndWidthOfSubdivisions}px`;
 
 
-            whole.append(div);
-        }
-    
-    
+        whole.append(div);
     
     }
+   
+
+};
+
+function clearGrid() {
+
+    let allDivs = document.querySelectorAll(".divs");
 
 
-    paintSubdivision();
+    for (let i of allDivs) {
+        i.remove();
+    }    
 
 
 };
+
 
 
 
@@ -95,7 +95,6 @@ sketchArea.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = "red";
         e.target.stopPropogation;
 
-
     }
 
 //TODO HERE: MAKE IT SO IT STOPS PAINTING WHEN SHIFT + MOUSEOVER OCCURS.
@@ -106,8 +105,11 @@ sketchArea.addEventListener("mouseover", (e) => {
 
 
 newGridBtn.addEventListener("click", () => {
-    console.log("here");
-    
+    clearGrid();
+    createGrid(gridPrompt());
+
+
+
 });
 
 //*****WE ARE HERE. NEED TO MAKE BUTTONS OPERATIONAL */
@@ -115,6 +117,7 @@ newGridBtn.addEventListener("click", () => {
 
 
 
+createGrid(gridPrompt());
 
 
 
