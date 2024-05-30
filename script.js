@@ -127,6 +127,13 @@ function getRndInteger(min, max) {
 
 //Events
 
+
+
+//TODO HERE: MAKE IT SO IT you have to hold and drag to paint colo.
+//make it do that a user can play the snake game without ruining their drawing unless the snake eats something
+//make it so that a button to play tick-tack toe appears if user selects a 3x3 grid
+  //cursor should toggle between x and o for user to select a box in which to put symbol inside.
+
 let tileColor = "red";
 let modeFlag = 0;
 
@@ -157,9 +164,7 @@ sketchArea.addEventListener("mouseover", (e) => {
 
 
 
-//TODO HERE: MAKE IT SO IT STOPS PAINTING WHEN SHIFT + MOUSEOVER OCCURS.
-//make it do that a user can play the snake game without ruining their drawing unless the snake eats something
-    
+  
 
 });
 
@@ -237,10 +242,17 @@ clearBtn.addEventListener("click", () => {
 
     clearColor();
 
-})
+});
 
 
-createGrid(gridPrompt());
+
+
+
+
+
+
+
+createGrid();
 
 
 
