@@ -10,6 +10,10 @@ let clearBtn = document.querySelector(".clear-btn");
 let whole = document.querySelector(".whole");
 let sketchArea = document.querySelector(".sketchArea");
 let allDivs = document.querySelectorAll(".divs");
+let colorisID = document.querySelector('#clr-color-value');
+let colorField = document.querySelector(".color-field");
+
+
 
 
 
@@ -129,7 +133,13 @@ function getRndInteger(min, max) {
 
 
 //Events
-let pickedColor = "red" ;
+
+
+
+
+
+
+let pickedColor = "red";
 
 //colorpicker
 document.addEventListener('coloris:pick', event => {
