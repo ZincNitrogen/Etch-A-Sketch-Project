@@ -1,8 +1,7 @@
 *{
     box-sizing: border-box;
     margin: 0%;
-    padding: 0%
-    ;
+    padding: 0%;
 }
 
 
@@ -10,18 +9,31 @@
 .bigbox {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     margin-top: 5vh;
+    /*border: 1px solid blue;*/
+
 }
 
+.color-picker {
+    order: 1;
+    padding-right: 1rem;
+
+
+
+
+    
+}
 
 .sketchArea {
+    order: 2;
     display: flex;
     flex-flow: row wrap;
     height: 500px;
     width: 500px ;
     border: 1px solid blue;
+    margin-right: 12rem;
 
 
 }
