@@ -3,4 +3,4 @@ from The Odin Project
 
 Doing this for fun.
 
-Live demo: https://thechronicamateur.github.io/Etch-A-Sketch-Project/
+Live demo: https://zincnitrogen.github.io/Etch-A-Sketch-Project/
